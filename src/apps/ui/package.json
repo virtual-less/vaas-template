@@ -1,0 +1,9 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "vaas-framework": "^1.0.17"
+  }
+}

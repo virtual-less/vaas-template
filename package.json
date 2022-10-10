@@ -1,0 +1,31 @@
+{
+  "name": "vaas-template",
+  "version": "1.0.0",
+  "description": "vaas server template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf ./build/ && cp -rf ./src/ ./build/",
+    "build": "tsc",
+    "launch": "npm run build && node ./build/index.js",
+    "start": "npm run clean && npm run launch",
+    "dev": "npm run clean && nodemon -e js,mjs,json,ts  --exec 'npm run launch' --watch ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virtual-less/vaas-template.git"
+  },
+  "author": "zy445566",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/virtual-less/vaas-template/issues"
+  },
+  "homepage": "https://github.com/virtual-less/vaas-template#readme",
+  "dependencies": {
+    "vaas-framework": "^1.0.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "typescript": "^4.8.4"
+  }
+}

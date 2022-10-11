@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf ./build/ && cp -rf ./src/ ./build/",
     "build": "tsc",
-    "launch": "npm run build && node ./build/index.js",
+    "launch": "npm run build && vaas",
     "start": "npm run clean && npm run launch",
     "dev": "npm run clean && nodemon -e js,mjs,json,ts  --exec 'npm run launch' --watch ./src"
   },
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/virtual-less/vaas-template#readme",
   "dependencies": {
-    "vaas-framework": "^1.0.17"
+    "vaas-framework": "^1.0.18"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

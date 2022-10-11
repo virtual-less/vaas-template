@@ -1,9 +1,5 @@
-import {VaasServer} from 'vaas-framework'
-import * as path from 'path'
-
-const vaasServer = new VaasServer()
-vaasServer.run({
-    appsDir:path.join(__dirname,'apps'), 
+module.exports = {
+    appsDir:path.join(__dirname,'build','apps'), 
     port:8080, 
     getAppNameByHost:async (host)=>{
         return ''
@@ -16,4 +12,4 @@ vaasServer.run({
         }
     }, 
     showErrorStack:true
-})
+}

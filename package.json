@@ -9,7 +9,7 @@
     "build": "tsc",
     "launch": "npm run build && vaas",
     "start": "npm run clean && npm run launch",
-    "dev": "npm run clean && nodemon -e js,mjs,json,ts  --exec 'npm run launch' --watch ./src"
+    "dev": "npm run clean && nodemon -e js,mjs,json,ts  --exec 'npm run launch' --watch ./src ./vaas.config.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/virtual-less/vaas-template#readme",
   "dependencies": {
-    "vaas-framework": "^1.0.18"
+    "vaas-framework": "^1.0.20"
   },
   "devDependencies": {
     "nodemon": "^2.0.20",

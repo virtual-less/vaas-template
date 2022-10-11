@@ -20,6 +20,10 @@ export default class Hello {
             'hello.getUserName',
             {params:{userId},context:{traceId:'vaas-request-id'}}
         )
+        res.headers = {
+            'Access-Control-Allow-Origin':'*'
+        }
+        res.status = 200
         return {
             hello:userNameRes.result.username
         }

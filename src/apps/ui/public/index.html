@@ -8,8 +8,14 @@
 </head>
 <body>
     <h1><b>Welcome to VAAS</b></h1>
-    <style>
-        
-    </style>
+    <h2 id="hello"></h2>
+<script>
+    async function main() {
+        const resp = await fetch('http://localhost:8080/hello');
+        const data = await resp.json()
+        document.querySelector("#hello").textContent = `hello ${data.hello}`
+    }
+    main()
+</script>
 </body>
 </html>

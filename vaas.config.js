@@ -7,9 +7,6 @@ module.exports = {
         if(['127.0.0.1'].includes(host)) {
             return 'ui'
         }
-        if(['localhost'].includes(host)) {
-            return 'hello'
-        }
         return ''
     },
 }

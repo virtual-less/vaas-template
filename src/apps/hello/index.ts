@@ -23,7 +23,6 @@ export default class Hello {
         res.headers = {
             'Access-Control-Allow-Origin':'*'
         }
-        res.status = 200
         return {
             hello:userNameRes.result.username
         }

@@ -6,12 +6,10 @@ import * as path from 'path'
 export default class UI {
     @Decorator.VassServer({type:'http',method:'get',routerName:'/'})
  async index({req,res}:VaasServerType.HttpParams) {
-   res.status = 200
    return (await fsPromises.readFile(path.join(__dirname,'./public/index.html'))).toString()
  }
  @Decorator.VassServer({type:'http',method:'get',routerName:'/favicon.ico'})
  async faviconIco({req,res}:VaasServerType.HttpParams) {
-   res.status = 200
    return await fsPromises.readFile(path.join(__dirname,'./public/favicon.ico'))
  }
 

@@ -8,9 +8,10 @@ export default class UI {
  async index({req,res}:VaasServerType.HttpParams) {
    return (await fsPromises.readFile(path.join(__dirname,'./public/index.html'))).toString()
  }
- @Decorator.VassServer({type:'http',method:'get',routerName:'/favicon.ico'})
+ @Decorator.VassServer({type:'http',method:'get',routerName:'/:fileName'})
  async faviconIco({req,res}:VaasServerType.HttpParams) {
-   return await fsPromises.readFile(path.join(__dirname,'./public/favicon.ico'))
+  const {fileName} = req.params
+   return await fsPromises.readFile(path.join(__dirname,`./public/${fileName}`))
  }
 
  @Decorator.VassServer({type:'http',method:'get',routerName:'/location'})

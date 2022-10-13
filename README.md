@@ -8,7 +8,7 @@ npm run dev
 
 # Base code
 ```ts
-// # mini/index.ts
+// # src/apps/mini/index.ts
 import {VaasServerType, Decorator } from 'vaas-framework'
 
 export default class Mini {

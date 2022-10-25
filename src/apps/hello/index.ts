@@ -40,4 +40,11 @@ export default class Hello {
             context
         }
     }
+
+    @Decorator.VassServer({type:'http',method:'get'})
+    async ping({req,res}:VaasServerType.HttpParams) {
+        return {
+            pong:true
+        }
+    }
 }

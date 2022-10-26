@@ -40,6 +40,14 @@ export default class Hello {
             context
         }
     }
+    
+    @Decorator.VassServer({type:'websocket',method:'get'})
+    async socket(data:string|Buffer) {
+        throw new Error('socket error')
+        return {
+            arrived:data
+        }
+    }
 
     @Decorator.VassServer({type:'http',method:'get'})
     async ping({req,res}:VaasServerType.HttpParams) {

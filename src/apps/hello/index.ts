@@ -43,7 +43,7 @@ export default class Hello {
     
     @Decorator.VassServer({type:'websocket',method:'get'})
     async socket(data:string|Buffer) {
-        throw new Error('socket error')
+        // throw new Error('something error')
         return {
             arrived:data
         }

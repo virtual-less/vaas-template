@@ -9,4 +9,11 @@ module.exports = {
         }
         return ''
     },
+    getAppConfigByAppName: async (appName)=>{
+        return {
+            maxWorkerNum: 1,
+            allowModuleSet: new Set(['*']),
+            timeout: 30 * 1000
+        };
+    }
 }

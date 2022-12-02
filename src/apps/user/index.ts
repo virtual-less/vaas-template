@@ -9,7 +9,7 @@ interface RpcGetUserInfoByIdResult {
     context:any
 }
 export default class User {
-    @Decorator.VassServer({type:'rpc'})
+    @Decorator.VaasServer({type:'rpc'})
     async getUserInfoById({params,context}:RpcCommonParams):Promise<RpcGetUserInfoByIdResult> {
         const data = [
             {id:1,name:'jack'},

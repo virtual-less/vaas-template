@@ -13,7 +13,7 @@ interface RpcGetUserInfoByIdResult {
     context:any
 }
 export default class Hello {
-    @Decorator.VassServer({type:'http',method:'get',routerName:'/hello'})
+    @Decorator.VaasServer({type:'http',method:'get',routerName:'/hello'})
     async hello({req,res}:VaasServerType.HttpParams) {
         const userId = req.query.userId || req.body.userId || 0
         const userNameRes = await rpcInvote<RpcCommonParams,RpcGetUserNameResult>(
@@ -27,7 +27,7 @@ export default class Hello {
             hello:userNameRes.result.username
         }
     }
-    @Decorator.VassServer({type:'rpc'})
+    @Decorator.VaasServer({type:'rpc'})
     async getUserName({params,context}:RpcCommonParams):Promise<RpcGetUserNameResult> {
         const userRes = await rpcInvote<RpcCommonParams,RpcGetUserInfoByIdResult>(
             'user.getUserInfoById',
@@ -41,7 +41,7 @@ export default class Hello {
         }
     }
     
-    @Decorator.VassServer({type:'websocket',method:'get'})
+    @Decorator.VaasServer({type:'websocket',method:'get'})
     async socket(data:string|Buffer) {
         // throw new Error('something error')
         return {
@@ -49,7 +49,7 @@ export default class Hello {
         }
     }
 
-    @Decorator.VassServer({type:'http',method:'get'})
+    @Decorator.VaasServer({type:'http',method:'get'})
     async ping({req,res}:VaasServerType.HttpParams) {
         return {
             pong:true

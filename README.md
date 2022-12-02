@@ -12,7 +12,7 @@ npm run dev
 import {VaasServerType, Decorator } from 'vaas-framework'
 
 export default class Mini {
-    @Decorator.VassServer({type:'http',method:'get',routerName:'/hello'})
+    @Decorator.VaasServer({type:'http',method:'get',routerName:'/hello'})
     async hello({req,res}:VaasServerType.HttpParams) {
         return {
             hello:'world'

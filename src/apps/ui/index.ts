@@ -1,5 +1,5 @@
 import {VaasServerType, Decorator} from 'vaas-framework'
-import {promises as fsPromises} from 'fs'
+import {promises as fsPromises, createReadStream} from 'fs'
 import * as fs from 'fs'
 import * as path from 'path'
 
@@ -11,7 +11,7 @@ export default class UI {
  @Decorator.VaasServer({type:'http',method:'get',routerName:'/:fileName'})
  async faviconIco({req,res}:VaasServerType.HttpParams) {
   const {fileName} = req.params
-   return await fsPromises.readFile(path.join(__dirname,`./public/${fileName}`))
+   return createReadStream(path.join(__dirname,`./public/${fileName}`))
  }
 
  @Decorator.VaasServer({type:'http',method:'get',routerName:'/location'})

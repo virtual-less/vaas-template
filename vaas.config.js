@@ -13,7 +13,8 @@ module.exports = {
         return {
             maxWorkerNum: 1,
             allowModuleSet: new Set(['*']),
-            timeout: 30 * 1000
+            timeout: 30 * 1000,
+            useVmLoadDependencies:true
         };
     },
     getByPassFlowVersion: async (_appName)=>{

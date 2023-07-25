@@ -4,10 +4,17 @@ module.exports = {
     port:8080,
     showErrorStack:true,
     getAppNameByRequest: async (request)=>{
-        if(['/','/favicon.ico'].includes(request.path)) {
-            return  {appName:'ui',prefix:'/'}
+        // 匹配/api开头作为接口
+        const pathMatchRes = /^\/api\/(\w+)/.exec(request.path)
+        if(pathMatchRes) {
+            /**
+             * example
+             * input: /^\/api\/(\w+)/.exec('/api/hello/xxxx') 
+             * output: ['/api/hello', 'hello', index: 0, input: '/api/hello/xxxx', groups: undefined]
+             */
+            return  {appName:pathMatchRes[1],prefix:pathMatchRes[0]}
         }
-        return {appName:'',prefix:''}
+        return  {appName:'ui',prefix:'/'}
     },
     getAppConfigByAppName: async (_appName)=>{
         return {

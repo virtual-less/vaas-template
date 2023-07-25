@@ -11,10 +11,10 @@
     <h2 id="hello"></h2>
 <script>
     async function main() {
-        const resp = await fetch('/hello/hello');
+        const resp = await fetch('/api/hello/hello');
         const data = await resp.json()
         document.querySelector("#hello").textContent = `hello ${data.hello}`
-        const ws = new WebSocket(`ws://${window.location.host}/hello/socket`)
+        const ws = new WebSocket(`ws://${window.location.host}/api/hello/socket`)
         ws.onopen = function(){
             ws.send("hello"); 
         }

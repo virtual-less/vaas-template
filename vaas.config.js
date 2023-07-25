@@ -5,9 +5,9 @@ module.exports = {
     showErrorStack:true,
     getAppNameByRequest: async (request)=>{
         if(['/','/favicon.ico'].includes(request.path)) {
-            return 'ui'
+            return  {appName:'ui',prefix:'/'}
         }
-        return ''
+        return {appName:'',prefix:''}
     },
     getAppConfigByAppName: async (_appName)=>{
         return {
@@ -18,6 +18,6 @@ module.exports = {
         };
     },
     getByPassFlowVersion: async (_appName)=>{
-        return '';
+        return {version:''};
     },
 }

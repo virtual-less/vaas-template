@@ -1,5 +1,7 @@
+// @ts-check
 const path = require("path");
-module.exports = {
+const { util } = require("vaas-framework");
+module.exports = util.validVaasConfig({
     appsDir:path.join(__dirname,'build','apps'), 
     port:8080,
     showErrorStack:true,
@@ -27,4 +29,4 @@ module.exports = {
     getByPassFlowVersion: async (_appName)=>{
         return {version:''};
     },
-}
+})

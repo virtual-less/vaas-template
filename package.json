@@ -10,7 +10,8 @@
     "launch": "npm run build && vaas",
     "start": "npm run copy && npm run launch",
     "dev": "npm run copy && nodemon -e js,mjs,json,ts  --exec 'npm run launch' --watch ./src ./vaas.config.js",
-    "deploy": "npm run copy && npm run build && vaas deploy -h http://127.0.0.1:9080/platform"
+    "deploy": "npm run copy && npm run build && vaas deploy -h http://127.0.0.1:9080/platform",
+    "postinstall": "sh ./install.sh"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
   },
   "homepage": "https://github.com/virtual-less/vaas-template#readme",
   "dependencies": {
-    "vaas-framework": "^1.5.2"
+    "vaas-framework": "^1.6.1"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",

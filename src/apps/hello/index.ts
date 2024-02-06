@@ -43,7 +43,7 @@ export default class Hello {
   }
 
   @Decorator.VaasServer({ type: 'websocket', method: 'get' })
-  async socket (data: string | Buffer) {
+  async socket ({ data }: { data: string | Buffer }) {
     // throw new Error('something error')
     return {
       arrived: data

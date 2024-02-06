@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/virtual-less/vaas-template#readme",
   "dependencies": {
-    "vaas-framework": "^1.6.1"
+    "vaas-framework": "^1.9.2"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",

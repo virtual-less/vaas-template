@@ -1,44 +1,44 @@
 import { type VaasServerType, Decorator, rpcInvote } from 'vaas-framework'
 
-interface RpcCommonParams {
-  params: any
-  context: any
+interface RpcGetUserNameParams {
+  userId: number
+}
+interface RpcGetUserInfoByIdParams {
+  id: number
 }
 interface RpcGetUserNameResult {
-  result: { username: string }
-  context: any
+  username: string
 }
 interface RpcGetUserInfoByIdResult {
-  result: { id: number, name: string }
-  context: any
+  id: number
+  name: string
 }
 export default class Hello {
   @Decorator.VaasServer({ type: 'http', method: 'get', routerName: '/hello' })
   async hello ({ req, res }: VaasServerType.HttpParams) {
-    const userId = req.query.userId || req.body.userId || 0
-    const userNameRes = await rpcInvote<RpcCommonParams, RpcGetUserNameResult>(
+    const userId = parseInt(req.query.userId || req.body.userId) || 0
+    const userNameRes = await rpcInvote<RpcGetUserNameParams, RpcGetUserNameResult>(
       'hello.getUserName',
-      { params: { userId }, context: { traceId: 'vaas-request-id' } }
+      { userId },
+      { traceId: 'vaas-request-id' }
     )
     res.headers = {
       'Access-Control-Allow-Origin': '*'
     }
     return {
-      hello: userNameRes.result.username
+      hello: userNameRes.username
     }
   }
 
   @Decorator.VaasServer({ type: 'rpc' })
-  async getUserName ({ params, context }: RpcCommonParams): Promise<RpcGetUserNameResult> {
-    const userRes = await rpcInvote<RpcCommonParams, RpcGetUserInfoByIdResult>(
+  async getUserName ({ params, context }: VaasServerType.RpcParams<RpcGetUserNameParams>): Promise<RpcGetUserNameResult> {
+    const userRes = await rpcInvote<RpcGetUserInfoByIdParams, RpcGetUserInfoByIdResult>(
       'user.getUserInfoById',
-      { params: { id: params.userId }, context }
+      { id: params.userId },
+      context
     )
     return {
-      result: {
-        username: userRes.result.name
-      },
-      context
+      username: userRes.name
     }
   }
 

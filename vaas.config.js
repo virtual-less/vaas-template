@@ -5,6 +5,7 @@ module.exports = util.validVaasConfig({
     appsDir:path.join(__dirname,'build','apps'), 
     port:8080,
     showErrorStack:true,
+    isPrepareWorker:false,
     getAppNameByRequest: async (request)=>{
         // 匹配/api开头作为接口
         const pathMatchRes = /^\/api\/(\w+)/.exec(request.path)
